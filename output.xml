@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.2 on win32)" generated="20220123 20:44:47.598" rpa="false" schemaversion="2">
+<suite id="s1" name="Test" source="D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\test.robot">
+<test id="s1-t1" name="Test Starting the program and exiting">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_1}</arg>
+<arg>${buildings_1}</arg>
+<arg>${locations_1}</arg>
+<arg>${bldgChoicesList_1}</arg>
+<arg>${lb_names_1}</arg>
+<arg>${board_size_list_1}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:47.665" level="INFO">Starting process:
+python start_menu.py -1 True 0 None None None None None</msg>
+<msg timestamp="20220123 20:44:47.668" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:47.728" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:47.728" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:47.664" endtime="20220123 20:44:47.728"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:47.729" endtime="20220123 20:44:47.730"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:47.663" endtime="20220123 20:44:47.730"/>
+</test>
+<test id="s1-t2" name="Test Starting a new game and exiting with user passing in only 1 building for the building pool once">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_2}</arg>
+<arg>${buildings_2}</arg>
+<arg>${locations_2}</arg>
+<arg>${bldgChoicesList_2}</arg>
+<arg>${lb_names_2}</arg>
+<arg>${board_size_list_2}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:47.733" level="INFO">Starting process:
+python start_menu.py -1 True 1,0,0 HSE,HSE None HSE.HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:47.736" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:47.797" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:47.797" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:47.732" endtime="20220123 20:44:47.797"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\nPlease enter 5 building types\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:47.798" endtime="20220123 20:44:47.831"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:47.732" endtime="20220123 20:44:47.832"/>
+</test>
+<test id="s1-t3" name="Test Starting a new game and exiting with user passing in a repeated building in the building pool once">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_3}</arg>
+<arg>${buildings_3}</arg>
+<arg>${locations_3}</arg>
+<arg>${bldgChoicesList_3}</arg>
+<arg>${lb_names_3}</arg>
+<arg>${board_size_list_3}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:47.836" level="INFO">Starting process:
+python start_menu.py -1 True 1,0,0 HSE,HSE None HSE,HSE,MON,PRK,SHP.HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:47.839" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:47.896" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:47.896" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:47.834" endtime="20220123 20:44:47.896"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\nPlease only choose 1 of each type of building\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:47.897" endtime="20220123 20:44:47.925"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:47.833" endtime="20220123 20:44:47.926"/>
+</test>
+<test id="s1-t4" name="Test Starting a new game and exiting with user passing in an invalid building type in the building pool once">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_4}</arg>
+<arg>${buildings_4}</arg>
+<arg>${locations_4}</arg>
+<arg>${bldgChoicesList_4}</arg>
+<arg>${lb_names_4}</arg>
+<arg>${board_size_list_4}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:47.928" level="INFO">Starting process:
+python start_menu.py -1 True 1,0,0 HSE,HSE None HEE,FAC,MON,PRK,SHP.HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:47.930" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:47.988" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:47.988" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:47.927" endtime="20220123 20:44:47.988"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\nInvalid building type input\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:47.988" endtime="20220123 20:44:48.017"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:47.927" endtime="20220123 20:44:48.018"/>
+</test>
+<test id="s1-t5" name="Test Loading a saved game successfully and exiting">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>16\nBCH,SHP,HWY,FAC,HSE\nBCH,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.021" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.020" endtime="20220123 20:44:48.021"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_5}</arg>
+<arg>${buildings_5}</arg>
+<arg>${locations_5}</arg>
+<arg>${bldgChoicesList_5}</arg>
+<arg>${lb_names_5}</arg>
+<arg>${board_size_list_5}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.023" level="INFO">Starting process:
+python start_menu.py -1 True 2,0,0 HSE,HSE None None None None</msg>
+<msg timestamp="20220123 20:44:48.025" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.084" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.084" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.022" endtime="20220123 20:44:48.085"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\n\nTurn 16\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.085" endtime="20220123 20:44:48.097"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.020" endtime="20220123 20:44:48.097"/>
+</test>
+<test id="s1-t6" name="Test Loading an invalid saved file with invalid building types">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>16\nBCH,SHP,HWY,FAC,HSE\nBCH,HEE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.100" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.099" endtime="20220123 20:44:48.100"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_6}</arg>
+<arg>${buildings_6}</arg>
+<arg>${locations_6}</arg>
+<arg>${bldgChoicesList_6}</arg>
+<arg>${lb_names_6}</arg>
+<arg>${board_size_list_6}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.102" level="INFO">Starting process:
+python start_menu.py -1 True 2,0 None None None None None</msg>
+<msg timestamp="20220123 20:44:48.104" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.171" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.172" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.100" endtime="20220123 20:44:48.172"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nThe saved file is invalid. Returning to main menu.\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.172" endtime="20220123 20:44:48.174"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.099" endtime="20220123 20:44:48.174"/>
+</test>
+<test id="s1-t7" name="Test Loading an invalid saved file with board and turn number not corresponding">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>99\nBCH,SHP,HWY,FAC,HSE\nBCH,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.176" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.176" endtime="20220123 20:44:48.176"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_6}</arg>
+<arg>${buildings_6}</arg>
+<arg>${locations_6}</arg>
+<arg>${bldgChoicesList_6}</arg>
+<arg>${lb_names_6}</arg>
+<arg>${board_size_list_6}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.178" level="INFO">Starting process:
+python start_menu.py -1 True 2,0 None None None None None</msg>
+<msg timestamp="20220123 20:44:48.180" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.242" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.243" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.177" endtime="20220123 20:44:48.243"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nThe saved file is invalid. Returning to main menu.\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.243" endtime="20220123 20:44:48.245"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.175" endtime="20220123 20:44:48.245"/>
+</test>
+<test id="s1-t8" name="Test Loading an invalid saved file with a board of unequal row lengths">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>15\nBCH,SHP,HWY,FAC,HSE\nBCH,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.248" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.247" endtime="20220123 20:44:48.248"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_6}</arg>
+<arg>${buildings_6}</arg>
+<arg>${locations_6}</arg>
+<arg>${bldgChoicesList_6}</arg>
+<arg>${lb_names_6}</arg>
+<arg>${board_size_list_6}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.250" level="INFO">Starting process:
+python start_menu.py -1 True 2,0 None None None None None</msg>
+<msg timestamp="20220123 20:44:48.252" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.317" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.318" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.248" endtime="20220123 20:44:48.318"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nThe saved file is invalid. Returning to main menu.\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.318" endtime="20220123 20:44:48.321"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.246" endtime="20220123 20:44:48.322"/>
+</test>
+<test id="s1-t9" name="Test Loading an invalid saved file where the buildings are not placed orthogonally adjacent to one another">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>3\nBCH,SHP,HWY,FAC,HSE\nBCH,?,?,?\n?,?,?,?\n?,?,SHP,?\n?,?,?,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.324" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.324" endtime="20220123 20:44:48.324"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_6}</arg>
+<arg>${buildings_6}</arg>
+<arg>${locations_6}</arg>
+<arg>${bldgChoicesList_6}</arg>
+<arg>${lb_names_6}</arg>
+<arg>${board_size_list_6}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.326" level="INFO">Starting process:
+python start_menu.py -1 True 2,0 None None None None None</msg>
+<msg timestamp="20220123 20:44:48.328" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.391" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.391" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.325" endtime="20220123 20:44:48.391"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nThe saved file is invalid. Returning to main menu.\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.392" endtime="20220123 20:44:48.393"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.323" endtime="20220123 20:44:48.393"/>
+</test>
+<test id="s1-t10" name="Test Loading an invalid saved file where more than 8 instances of a building has been placed">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>17\nBCH,SHP,HWY,FAC,HSE\HSE,HSE,HSE,HSE\nHSE,HSE,HSE,HSE\nHSE,HSE,HSE,HSE\nHSE,HSE,HSE,HSE</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.396" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.395" endtime="20220123 20:44:48.396"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_6}</arg>
+<arg>${buildings_6}</arg>
+<arg>${locations_6}</arg>
+<arg>${bldgChoicesList_6}</arg>
+<arg>${lb_names_6}</arg>
+<arg>${board_size_list_6}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.397" level="INFO">Starting process:
+python start_menu.py -1 True 2,0 None None None None None</msg>
+<msg timestamp="20220123 20:44:48.399" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.455" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.455" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.396" endtime="20220123 20:44:48.455"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nThe saved file is invalid. Returning to main menu.\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.456" endtime="20220123 20:44:48.457"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.394" endtime="20220123 20:44:48.458"/>
+</test>
+<test id="s1-t11" name="Test Loading an invalid saved file where the buildings in the building pool are invalid building types">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>16\nBCH,SHP,HWY,FAC,HEE\nBCH,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.460" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.459" endtime="20220123 20:44:48.460"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_6}</arg>
+<arg>${buildings_6}</arg>
+<arg>${locations_6}</arg>
+<arg>${bldgChoicesList_6}</arg>
+<arg>${lb_names_6}</arg>
+<arg>${board_size_list_6}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.463" level="INFO">Starting process:
+python start_menu.py -1 True 2,0 None None None None None</msg>
+<msg timestamp="20220123 20:44:48.465" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.525" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.525" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.461" endtime="20220123 20:44:48.525"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nThe saved file is invalid. Returning to main menu.\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.526" endtime="20220123 20:44:48.527"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.459" endtime="20220123 20:44:48.528"/>
+</test>
+<test id="s1-t12" name="Test Loading an invalid saved file where the buildings placed on the board do not belong in the building pool">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>16\nBCH,SHP,HWY,FAC,HSE\nMON,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.530" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.529" endtime="20220123 20:44:48.530"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_6}</arg>
+<arg>${buildings_6}</arg>
+<arg>${locations_6}</arg>
+<arg>${bldgChoicesList_6}</arg>
+<arg>${lb_names_6}</arg>
+<arg>${board_size_list_6}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.532" level="INFO">Starting process:
+python start_menu.py -1 True 2,0 None None None None None</msg>
+<msg timestamp="20220123 20:44:48.534" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.592" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.593" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.530" endtime="20220123 20:44:48.593"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nThe saved file is invalid. Returning to main menu.\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.593" endtime="20220123 20:44:48.595"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.529" endtime="20220123 20:44:48.595"/>
+</test>
+<test id="s1-t13" name="Test Loading a saved file that does not exist">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220123 20:44:48.597" level="INFO" html="true">Removed file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.597" endtime="20220123 20:44:48.598"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_7}</arg>
+<arg>${buildings_7}</arg>
+<arg>${locations_7}</arg>
+<arg>${bldgChoicesList_7}</arg>
+<arg>${lb_names_7}</arg>
+<arg>${board_size_list_7}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.599" level="INFO">Starting process:
+python start_menu.py -1 True 2,0,0 HSE,HSE None HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:48.601" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.663" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.663" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.598" endtime="20220123 20:44:48.663"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nNo saved game file found! Starting new game...\n\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.664" endtime="20220123 20:44:48.693"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.597" endtime="20220123 20:44:48.693"/>
+</test>
+<test id="s1-t14" name="Test Entering an invalid option in the play menu">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_8}</arg>
+<arg>${buildings_8}</arg>
+<arg>${locations_8}</arg>
+<arg>${bldgChoicesList_8}</arg>
+<arg>${lb_names_8}</arg>
+<arg>${board_size_list_8}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.696" level="INFO">Starting process:
+python start_menu.py -1 True 1,9,0,0 HSE,HSE None HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:48.698" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.754" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.754" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.695" endtime="20220123 20:44:48.754"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\nInvalid option! Please try again!\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.754" endtime="20220123 20:44:48.813"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.694" endtime="20220123 20:44:48.814"/>
+</test>
+<test id="s1-t15" name="Test Entering a series of invalid input for location when placing a building with no prior buldings placed">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_9}</arg>
+<arg>${buildings_9}</arg>
+<arg>${locations_9}</arg>
+<arg>${bldgChoicesList_9}</arg>
+<arg>${lb_names_9}</arg>
+<arg>${board_size_list_9}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.818" level="INFO">Starting process:
+python start_menu.py -1 True 1,1,0,0 HSE,HSE,HSE,FAC ,A,C9,A1 HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:48.820" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:48.881" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:48.881" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.817" endtime="20220123 20:44:48.881"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\nInvalid input! Please enter in a valid location coordinate!\nInvalid input! Please enter in a valid location coordinate!\nInvalid location coordinates! Please enter in a valid location coordinate!\n\nTurn 2\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| HSE |${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:48.882" endtime="20220123 20:44:48.943"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.816" endtime="20220123 20:44:48.944"/>
+</test>
+<test id="s1-t16" name="Test Entering a series of invalid input for location when placing a building with a building placed currently">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>2\nBCH,SHP,HWY,FAC,HSE\n?,?,?,?\n?,FAC,?,?\n?,?,?,?\n?,?,?,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:48.947" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:48.946" endtime="20220123 20:44:48.947"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_10}</arg>
+<arg>${buildings_10}</arg>
+<arg>${locations_10}</arg>
+<arg>${bldgChoicesList_10}</arg>
+<arg>${lb_names_10}</arg>
+<arg>${board_size_list_10}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:48.949" level="INFO">Starting process:
+python start_menu.py -1 True 2,1,0,0 HSE,HSE,HSE,FAC B2,A1,C1,B1 HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:48.953" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:49.020" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:49.020" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:48.947" endtime="20220123 20:44:49.021"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\n\nTurn 2\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}| FAC |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\nInvalid placement! There is already an existing building at B2. Please enter in a different location!\nYou must build next to an existing building.\nYou must build next to an existing building.\n\nTurn 3\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}| HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}| FAC |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:49.021" endtime="20220123 20:44:49.087"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:48.945" endtime="20220123 20:44:49.088"/>
+</test>
+<test id="s1-t17" name="Test Placing a building three times">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_11}</arg>
+<arg>${buildings_11}</arg>
+<arg>${locations_11}</arg>
+<arg>${bldgChoicesList_11}</arg>
+<arg>${lb_names_11}</arg>
+<arg>${board_size_list_11}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:49.093" level="INFO">Starting process:
+python start_menu.py -1 True 1,1,2,1,0,0 HSE,HSE,MON,FAC,PRK,MON,SHP,SHP B2,A2,B1 HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:49.096" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:49.210" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:49.211" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:49.090" endtime="20220123 20:44:49.211"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nTurn 2\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}| HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a MON\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nTurn 3\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a PRK\n2. Build a MON\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nTurn 4\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}| PRK |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a SHP\n2. Build a SHP\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:49.213" endtime="20220123 20:44:49.423"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:49.089" endtime="20220123 20:44:49.424"/>
+</test>
+<test id="s1-t18" name="Test See remaining buildings">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_12}</arg>
+<arg>${buildings_12}</arg>
+<arg>${locations_12}</arg>
+<arg>${bldgChoicesList_12}</arg>
+<arg>${lb_names_12}</arg>
+<arg>${board_size_list_12}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:49.428" level="INFO">Starting process:
+python start_menu.py -1 True 1,3,2,1,3,0,0 HSE,HSE,MON,FAC,PRK,MON B2,A2 HSE,FAC,MON,PRK,SHP None None</msg>
+<msg timestamp="20220123 20:44:49.431" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:49.515" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:49.515" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:49.425" endtime="20220123 20:44:49.515"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nBuilding${SPACE * 10}Remaining\n--------${SPACE * 10}---------\nHSE${SPACE * 15}6\nFAC${SPACE * 15}8\nMON${SPACE * 15}8\nPRK${SPACE * 15}8\nSHP${SPACE * 15}8\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a HSE\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nTurn 2\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}| HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a MON\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nTurn 3\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2| MON | HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a PRK\n2. Build a MON\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nBuilding${SPACE * 10}Remaining\n--------${SPACE * 10}---------\nHSE${SPACE * 15}7\nFAC${SPACE * 15}8\nMON${SPACE * 15}6\nPRK${SPACE * 15}7\nSHP${SPACE * 15}8\n\nTurn 3\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2| MON | HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a PRK\n2. Build a MON\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:49.516" endtime="20220123 20:44:49.721"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:49.425" endtime="20220123 20:44:49.722"/>
+</test>
+<test id="s1-t19" name="Test See current score">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>15\nBCH,SHP,HWY,FAC,HSE\nBCH,HSE,HWY,HWY\nFAC,?,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:49.724" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:49.723" endtime="20220123 20:44:49.724"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_13}</arg>
+<arg>${buildings_13}</arg>
+<arg>${locations_13}</arg>
+<arg>${bldgChoicesList_13}</arg>
+<arg>${lb_names_13}</arg>
+<arg>${board_size_list_13}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:49.726" level="INFO">Starting process:
+python start_menu.py -1 True 2,4,2,4,0,0 HSE,FAC,BCH,FAC B2 BCH,SHP,HWY,FAC,HSE None None</msg>
+<msg timestamp="20220123 20:44:49.728" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:49.800" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:49.800" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:49.725" endtime="20220123 20:44:49.800"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\n\nTurn 15\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC |${SPACE * 5}| FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nBCH: 3 + 1 = 4\nSHP: 2 = 2\nHWY: 2 + 2 + 1 + 1 = 6\nFAC: 3 + 3 + 3 = 9\nHSE: 2 + 1 + 1 + 1 = 5\nTotal score: 26\n\nTurn 15\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC |${SPACE * 5}| FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nTurn 16\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a BCH\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nBCH: 3 + 1 = 4\nSHP: 3 = 3\nHWY: 2 + 2 + 1 + 1 = 6\nFAC: 4 + 4 + 4 + 4 = 16\nHSE: 1 + 1 + 1 + 1 = 4\nTotal score: 33\n\nTurn 16\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a BCH\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:49.801" endtime="20220123 20:44:49.895"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:49.723" endtime="20220123 20:44:49.895"/>
+</test>
+<test id="s1-t20" name="Test Save game">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_14}</arg>
+<arg>${buildings_14}</arg>
+<arg>${locations_14}</arg>
+<arg>${bldgChoicesList_14}</arg>
+<arg>${lb_names_14}</arg>
+<arg>${board_size_list_14}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:49.899" level="INFO">Starting process:
+python start_menu.py -1 True 1,1,2,5,0,0 HSE,FAC,BCH,FAC,SHP,SHP B2,A2 BCH,SHP,HWY,FAC,HSE None None</msg>
+<msg timestamp="20220123 20:44:49.902" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:49.970" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:49.970" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:49.897" endtime="20220123 20:44:49.970"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_content}</var>
+<arg>${saved_file_path}</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220123 20:44:49.971" level="INFO" html="true">Getting file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20220123 20:44:49.972" level="INFO">${file_content} = 3
+BCH,SHP,HWY,FAC,HSE
+?,?,?,?
+FAC,HSE,?,?
+?,?,?,?
+?,?,?,?</msg>
+<status status="PASS" starttime="20220123 20:44:49.971" endtime="20220123 20:44:49.972"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${file_content}</arg>
+<arg>3\nBCH,SHP,HWY,FAC,HSE\n?,?,?,?\nFAC,HSE,?,?\n?,?,?,?\n?,?,?,?</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:49.973" endtime="20220123 20:44:49.973"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nPlease select your building pool\nYou can pick from these listed buildings\n- BCH\n- FAC\n- HSE\n- HWY\n- MON\n- PRK\n- SHP\n\n\nTurn 1\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HSE\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nTurn 2\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2|${SPACE * 5}| HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a BCH\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nTurn 3\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a SHP\n2. Build a SHP\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nGame saved!\n\nTurn 3\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | HSE |${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 3|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n 4|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a SHP\n2. Build a SHP\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:49.973" endtime="20220123 20:44:50.092"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:49.897" endtime="20220123 20:44:50.092"/>
+</test>
+<test id="s1-t21" name="Test Check game end without user reaching top 10 in highscore case 1">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>16\nBCH,SHP,HWY,FAC,HSE\nBCH,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.095" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.094" endtime="20220123 20:44:50.095"/>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<arg>${leaderboard_file_path}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,reeeee1:40\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.096" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.096" endtime="20220123 20:44:50.096"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_15}</arg>
+<arg>${buildings_15}</arg>
+<arg>${locations_15}</arg>
+<arg>${bldgChoicesList_15}</arg>
+<arg>${lb_names_15}</arg>
+<arg>${board_size_list_15}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:50.098" level="INFO">Starting process:
+python start_menu.py -1 True 2,1,0 HWY,FAC,SHP,SHP D4 BCH,SHP,HWY,FAC,HSE None None</msg>
+<msg timestamp="20220123 20:44:50.100" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:50.164" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:50.164" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:50.097" endtime="20220123 20:44:50.164"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_content}</var>
+<arg>${leaderboard_file_path}</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220123 20:44:50.165" level="INFO" html="true">Getting file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20220123 20:44:50.165" level="INFO">${file_content} = 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+justin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,reeeee1:40
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</msg>
+<status status="PASS" starttime="20220123 20:44:50.164" endtime="20220123 20:44:50.165"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\n\nTurn 16\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HWY\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nFinal layout of Simp City:\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\nBCH: 3 + 1 = 4\nSHP: 3 = 3\nHWY: 2 + 2 + 1 + 1 + 1 = 7\nFAC: 4 + 4 + 4 + 4 = 16\nHSE: 1 + 1 + 1 + 1 = 4\nTotal score: 34\n\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.165" endtime="20220123 20:44:50.213"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${file_content}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,reeeee1:40\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.213" endtime="20220123 20:44:50.214"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:50.094" endtime="20220123 20:44:50.214"/>
+</test>
+<test id="s1-t22" name="Test Check game end without user reaching top 10 in highscore case 2">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>16\nBCH,SHP,HWY,FAC,HSE\nBCH,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.217" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.216" endtime="20220123 20:44:50.217"/>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<arg>${leaderboard_file_path}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,reeeee1:34\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.218" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.217" endtime="20220123 20:44:50.218"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_15}</arg>
+<arg>${buildings_15}</arg>
+<arg>${locations_15}</arg>
+<arg>${bldgChoicesList_15}</arg>
+<arg>${lb_names_15}</arg>
+<arg>${board_size_list_15}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:50.220" level="INFO">Starting process:
+python start_menu.py -1 True 2,1,0 HWY,FAC,SHP,SHP D4 BCH,SHP,HWY,FAC,HSE None None</msg>
+<msg timestamp="20220123 20:44:50.223" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:50.282" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:50.282" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:50.219" endtime="20220123 20:44:50.282"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_content}</var>
+<arg>${leaderboard_file_path}</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220123 20:44:50.282" level="INFO" html="true">Getting file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20220123 20:44:50.282" level="INFO">${file_content} = 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+justin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,reeeee1:34
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</msg>
+<status status="PASS" starttime="20220123 20:44:50.282" endtime="20220123 20:44:50.282"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\n\nTurn 16\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HWY\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nFinal layout of Simp City:\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\nBCH: 3 + 1 = 4\nSHP: 3 = 3\nHWY: 2 + 2 + 1 + 1 + 1 = 7\nFAC: 4 + 4 + 4 + 4 = 16\nHSE: 1 + 1 + 1 + 1 = 4\nTotal score: 34\n\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.283" endtime="20220123 20:44:50.330"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${file_content}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,reeeee1:34\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.331" endtime="20220123 20:44:50.331"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:50.216" endtime="20220123 20:44:50.332"/>
+</test>
+<test id="s1-t23" name="Test Check game end with user reaching top 10 in highscore case 1">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>16\nBCH,SHP,HWY,FAC,HSE\nBCH,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.335" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.334" endtime="20220123 20:44:50.335"/>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<arg>${leaderboard_file_path}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,reeeee1:33\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.336" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.336" endtime="20220123 20:44:50.337"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_16}</arg>
+<arg>${buildings_16}</arg>
+<arg>${locations_16}</arg>
+<arg>${bldgChoicesList_16}</arg>
+<arg>${lb_names_16}</arg>
+<arg>${board_size_list_16}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:50.339" level="INFO">Starting process:
+python start_menu.py -1 True 2,1,0 HWY,FAC,SHP,SHP D4 BCH,SHP,HWY,FAC,HSE ,nameWithPunc!@#$%,abcdabcdabcdabcdabcda,abcdabcdabcdabcdabcdab,abcdabcdabcdabcdabcd None</msg>
+<msg timestamp="20220123 20:44:50.342" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:50.399" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:50.399" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:50.337" endtime="20220123 20:44:50.400"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_content}</var>
+<arg>${leaderboard_file_path}</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220123 20:44:50.400" level="INFO" html="true">Getting file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20220123 20:44:50.401" level="INFO">${file_content} = 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+justin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,abcdabcdabcdabcdabcd:34
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</msg>
+<status status="PASS" starttime="20220123 20:44:50.400" endtime="20220123 20:44:50.401"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\n\nTurn 16\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HWY\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nFinal layout of Simp City:\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\nBCH: 3 + 1 = 4\nSHP: 3 = 3\nHWY: 2 + 2 + 1 + 1 + 1 = 7\nFAC: 4 + 4 + 4 + 4 = 16\nHSE: 1 + 1 + 1 + 1 = 4\nTotal score: 34\nCongratulations! You made the high score board at position 10\nThe name you have entered is invalid. Please try again!\nThe name you have entered is invalid. Please try again!\nThe name you have entered is invalid. Please try again!\nThe name you have entered is invalid. Please try again!\n\n--------- HIGH SCORES ---------\nPos Player${SPACE * 16}Score\n--- ------${SPACE * 16}-----\n 1. justin${SPACE * 19}48\n 2. juistin${SPACE * 18}48\n 3. test2${SPACE * 20}48\n 4. test${SPACE * 21}48\n 5. test${SPACE * 21}48\n 6. test9${SPACE * 20}48\n 7. test9${SPACE * 20}48\n 8. droog${SPACE * 20}48\n 9. prawg${SPACE * 20}48\n10. abcdabcdabcdabcdabcd${SPACE * 5}34\n-------------------------------\n\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.401" endtime="20220123 20:44:50.565"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${file_content}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,test2:48,test:48,test:48,test9:48,test9:48,droog:48,prawg:48,abcdabcdabcdabcdabcd:34\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.628" endtime="20220123 20:44:50.629"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:50.334" endtime="20220123 20:44:50.630"/>
+</test>
+<test id="s1-t24" name="Test Check game end with user reaching top 10 in highscore case 2">
+<kw name="Create File" library="OperatingSystem">
+<arg>${saved_file_path}</arg>
+<arg>16\nBCH,SHP,HWY,FAC,HSE\nBCH,HSE,HWY,HWY\nFAC,FAC,FAC,HSE\nHWY,SHP,HSE,HWY\nFAC,HSE,BCH,?</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.632" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityBoard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.632" endtime="20220123 20:44:50.633"/>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<arg>${leaderboard_file_path}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,reeeee1:33,r10:30,reeeee2:29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.633" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.633" endtime="20220123 20:44:50.633"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_17}</arg>
+<arg>${buildings_17}</arg>
+<arg>${locations_17}</arg>
+<arg>${bldgChoicesList_17}</arg>
+<arg>${lb_names_17}</arg>
+<arg>${board_size_list_17}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:50.635" level="INFO">Starting process:
+python start_menu.py -1 True 2,1,0 HWY,FAC,SHP,SHP D4 BCH,SHP,HWY,FAC,HSE peter None</msg>
+<msg timestamp="20220123 20:44:50.638" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:50.715" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:50.715" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:50.634" endtime="20220123 20:44:50.715"/>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_content}</var>
+<arg>${leaderboard_file_path}</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220123 20:44:50.716" level="INFO" html="true">Getting file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20220123 20:44:50.716" level="INFO">${file_content} = 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+justin:48,juistin:48,peter:34,reeeee1:33,r10:30,reeeee2:29
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</msg>
+<status status="PASS" starttime="20220123 20:44:50.716" endtime="20220123 20:44:50.716"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\n\nTurn 16\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH |${SPACE * 5}|\n${SPACE * 2}+-----+-----+-----+-----+\n1. Build a HWY\n2. Build a FAC\n3. See remaining buildings\n4. See current score\n\n5. Save game\n0. Exit to main menu\n\nFinal layout of Simp City:\n${SPACE * 5}A${SPACE * 5}B${SPACE * 5}C${SPACE * 5}D${SPACE * 3}\n${SPACE * 2}+-----+-----+-----+-----+\n 1| BCH | HSE | HWY | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 2| FAC | FAC | FAC | HSE |\n${SPACE * 2}+-----+-----+-----+-----+\n 3| HWY | SHP | HSE | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\n 4| FAC | HSE | BCH | HWY |\n${SPACE * 2}+-----+-----+-----+-----+\nBCH: 3 + 1 = 4\nSHP: 3 = 3\nHWY: 2 + 2 + 1 + 1 + 1 = 7\nFAC: 4 + 4 + 4 + 4 = 16\nHSE: 1 + 1 + 1 + 1 = 4\nTotal score: 34\nCongratulations! You made the high score board at position 3\n\n--------- HIGH SCORES ---------\nPos Player${SPACE * 16}Score\n--- ------${SPACE * 16}-----\n 1. justin${SPACE * 19}48\n 2. juistin${SPACE * 18}48\n 3. peter${SPACE * 20}34\n 4. reeeee1${SPACE * 18}33\n 5. r10${SPACE * 22}30\n 6. reeeee2${SPACE * 18}29\n-------------------------------\n\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.717" endtime="20220123 20:44:50.797"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${file_content}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,peter:34,reeeee1:33,r10:30,reeeee2:29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.797" endtime="20220123 20:44:50.797"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:50.631" endtime="20220123 20:44:50.798"/>
+</test>
+<test id="s1-t25" name="Test View high scores for an area size with no high scores currently">
+<kw name="Create File" library="OperatingSystem">
+<arg>${leaderboard_file_path}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,reeeee1:33,r10:30,reeeee2:29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.800" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.799" endtime="20220123 20:44:50.800"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_18}</arg>
+<arg>${buildings_18}</arg>
+<arg>${locations_18}</arg>
+<arg>${bldgChoicesList_18}</arg>
+<arg>${lb_names_18}</arg>
+<arg>${board_size_list_18}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:50.802" level="INFO">Starting process:
+python start_menu.py -1 True 3,0 None None None None invalidDimension.a,b,c.a,b.0,0.-1,-5.3,14.4,10</msg>
+<msg timestamp="20220123 20:44:50.804" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:50.862" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:50.862" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:50.800" endtime="20220123 20:44:50.862"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nInvalid input. Please try again...(e.g. 5,8)\nInvalid input. Please try again...(e.g. 5,8)\nInvalid input. Please try again...(e.g. 5,8)\nInvalid input. Board size cannot have height/length lesser than 0. Please try again...(e.g. 5,8)\nInvalid input. Board size cannot have height/length lesser than 0. Please try again...(e.g. 5,8)\nArea of the board cannot be more than 40. Please try again...\n\n--------- HIGH SCORES ---------\nPos Player${SPACE * 16}Score\n--- ------${SPACE * 16}-----\nNo high scores currently!\n-------------------------------\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.863" endtime="20220123 20:44:50.866"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:50.799" endtime="20220123 20:44:50.867"/>
+</test>
+<test id="s1-t26" name="Test View high scores for an area size with high scores">
+<kw name="Create File" library="OperatingSystem">
+<arg>${leaderboard_file_path}</arg>
+<arg>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\njustin:48,juistin:48,reeeee1:33,r10:30,reeeee2:29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<msg timestamp="20220123 20:44:50.869" level="INFO" html="true">Created file '&lt;a href="file://D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv"&gt;D:\Downloads\Sem 3.2\DOP\Assignment\QA\SimpCityQARepo\SimpCityLeaderboard.csv&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20220123 20:44:50.869" endtime="20220123 20:44:50.869"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python</arg>
+<arg>start_menu.py</arg>
+<arg>${-1}</arg>
+<arg>${True}</arg>
+<arg>${options_19}</arg>
+<arg>${buildings_19}</arg>
+<arg>${locations_19}</arg>
+<arg>${bldgChoicesList_19}</arg>
+<arg>${lb_names_19}</arg>
+<arg>${board_size_list_19}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20220123 20:44:50.871" level="INFO">Starting process:
+python start_menu.py -1 True 3,0 None None None None 4,4</msg>
+<msg timestamp="20220123 20:44:50.874" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20220123 20:44:50.934" level="INFO">Process completed.</msg>
+<msg timestamp="20220123 20:44:50.934" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20220123 20:44:50.870" endtime="20220123 20:44:50.934"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Welcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\n\n--------- HIGH SCORES ---------\nPos Player${SPACE * 16}Score\n--- ------${SPACE * 16}-----\n 1. justin${SPACE * 19}48\n 2. juistin${SPACE * 18}48\n 3. reeeee1${SPACE * 18}33\n 4. r10${SPACE * 22}30\n 5. reeeee2${SPACE * 18}29\n-------------------------------\n\nWelcome, mayor of Simp City!\n----------------------------\n1. Start new game\n2. Load saved game\n3. Show high scores\n\n0. Exit\nExiting Simp City...</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220123 20:44:50.935" endtime="20220123 20:44:50.944"/>
+</kw>
+<status status="PASS" starttime="20220123 20:44:50.868" endtime="20220123 20:44:50.945"/>
+</test>
+<status status="PASS" starttime="20220123 20:44:47.599" endtime="20220123 20:44:50.946"/>
+</suite>
+<statistics>
+<total>
+<stat pass="26" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="26" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

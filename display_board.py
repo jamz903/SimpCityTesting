@@ -1,5 +1,6 @@
 # function to display the board to user
 # takes in the turn number, and the board to display
+# testing
 def display_board(turn_num, board):
     if (turn_num == None):
         print("\nFinal layout of Simp City:")

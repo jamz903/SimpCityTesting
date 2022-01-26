@@ -111,8 +111,6 @@ jobs:
         body: |
           There has been a new release created under ${{github.repository}}! 
           View our Release: https://github.com/${{ github.repository }}/releases/tag/${{ env.RELEASE_VERSION }}
-        # Optional HTML body read from file:
-        html_body: file://README.html
         # Optional carbon copy recipients:
         cc: justin80@live.com.sg
         # Optional recipient of the email response:

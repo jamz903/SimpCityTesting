@@ -106,7 +106,7 @@ jobs:
         # Required mail subject:
         subject: SimpCity Release ${{ env.RELEASE_VERSION }}
         # Required recipients' addresses:
-        to: s10194918@connect.np.edu.sg
+        to: johnecader@gmail.com
         # Required sender full name (address can be skipped):
         from: Jamie Toh
         # Optional whether this connection use TLS (default is true if server_port is 465)

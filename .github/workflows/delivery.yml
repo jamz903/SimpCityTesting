@@ -102,7 +102,7 @@ jobs:
         # Required mail subject:
         subject: SimpCity Release ${{ env.RELEASE_VERSION }}
         # Required recipients' addresses:
-        to: jamietohhl@gmail.com
+        to: s10194918@connect.np.edu.sg
         # Required sender full name (address can be skipped):
         from: Jamie Toh
         # Optional whether this connection use TLS (default is true if server_port is 465)
@@ -114,7 +114,7 @@ jobs:
         # Optional carbon copy recipients:
         cc: justin80@live.com.sg
         # Optional recipient of the email response:
-        reply_to: jamietohhl@gmail.com
+        reply_to: s10194918@connect.np.edu.sg
         # Optional unsigned/invalid certificates allowance:
         ignore_cert: true
         # Optional converting Markdown to HTML (set content_type to text/html too):
